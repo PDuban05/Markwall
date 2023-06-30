@@ -11,11 +11,10 @@ export const Container = styled.div`
 export const ContainerNavBar = styled.div`
   display: flex;
   width: 100%;
-  height: auto;
   background-color: ${(props) => props.theme.backgroundContainer};
   position: relative;
-
-  @media (max-width: 767px) {
+  height: 130px;
+  @media (max-width: 1024px) {
     height: 85px;
   }
 `;
@@ -25,6 +24,7 @@ export const ContainerSearchBar = styled.div`
   display: flex;
   width: 100%;
   height: 40px;
+
   @media (max-width: 767px) {
     height: 25px;
   }

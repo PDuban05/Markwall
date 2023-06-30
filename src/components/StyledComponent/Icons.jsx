@@ -26,7 +26,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { HiArrowUturnLeft } from "react-icons/hi2";
 import { GrFormClose } from "react-icons/gr";
 import { IoLocationOutline } from "react-icons/io5";
-import { BiUserCircle } from "react-icons/bi";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const StyledIcon = (Icon) => styled(Icon)`
   width: 20px;
@@ -177,6 +177,7 @@ export const AiFillGifts = Icon(AiFillGift);
 export const BsFillTrashFillS = Icon(BsFillTrashFill);
 export const TbTruckDeliverys = Icon2(TbTruckDelivery);
 export const HiArrowUturnLefts = Icon2(HiArrowUturnLeft);
+export const RxHamburgerMenus = Icon2(RxHamburgerMenu);
 
 // export const GiBackwardTimes = IconPromises(GiBackwardTime);
 // export const AiOutlineQuestionCircles = IconPromises(AiOutlineQuestionCircle);

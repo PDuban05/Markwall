@@ -37,12 +37,10 @@ const ContainerFirst = styled.div`
   flex-direction: column;
   width: 25%;
   height: 100%;
-  gap: 15px;
+  /* gap: 15px; */
 
-  @media (max-width: 767px) {
-    flex-grow: 1;
+  @media (max-width: 1024px) {
     width: 20%;
-    gap: 0px;
   }
 `;
 
@@ -57,8 +55,10 @@ const ContainerSecond = styled(ContainerFirst)`
 const ContainerThird = styled(ContainerFirst)`
   align-items: end;
   width: 35%;
+
   @media (max-width: 767px) {
     width: 20%;
+    gap: 0;
   }
 `;
 
@@ -95,10 +95,9 @@ const ContainerLink = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
   width: 100%;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -106,9 +105,12 @@ const ContainerLink = styled.div`
 const ContainerIcons = styled.div`
   display: flex;
   gap: 20px;
-  position: relative;
-  height: 100%;
-  align-items: center;
+
+  align-items: end;
+
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
 `;
 
 const CategoriaInside = styled.div`
@@ -181,10 +183,16 @@ const StyledText6 = styled(StyledText5)`
 `;
 
 const ContainerEndBar = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    justify-content: end;
+    align-items: start;
+  }
 `;
 
 const ContainerFlex = styled.div`
@@ -192,8 +200,20 @@ const ContainerFlex = styled.div`
 `;
 const ContainerSelector = styled.div`
   transform: scale(0.8);
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     display: none;
+  }
+`;
+
+const StyledMdFavoriteBorders = styled(MdFavoriteBorders)`
+  @media (max-width: 767px) {
+    transform: scale(0.8);
+  }
+`;
+
+const StyledBsCart3s = styled(BsCart3s)`
+  @media (max-width: 767px) {
+    transform: scale(0.8);
   }
 `;
 
@@ -287,9 +307,6 @@ export const NavBar = () => {
                 <Link to="/login">
                   <StyledButton2>Iniciar sesión</StyledButton2>
                 </Link>
-                {/* <Link to="/cpanel/products">
-                  <StyledButton2>cpanel</StyledButton2>
-                </Link> */}
               </ContainerBtn>
             )}
 
@@ -303,11 +320,16 @@ export const NavBar = () => {
           </ContainerFlex>
 
           <ContainerIcons>
-            <MdFavoriteBorders />
+            <StyledMdFavoriteBorders />
             <ThemeProvider theme={theme}>
               <Link to="/shopingcard">
-                <Badge badgeContent={4} color="secondary">
-                  <BsCart3s color="action" />
+                <Badge
+                  overlap="circular"
+                  badgeContent=" "
+                  variant="dot"
+                  color="secondary"
+                >
+                  <StyledBsCart3s color="action" />
                 </Badge>
               </Link>
             </ThemeProvider>

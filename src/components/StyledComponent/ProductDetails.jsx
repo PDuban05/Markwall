@@ -9,6 +9,7 @@ import {
   TextPay2,
   TextPercentage,
   TextPrice,
+  Title,
   Title2,
 } from "./Text";
 import { Rating, Skeleton } from "@mui/material";
@@ -283,6 +284,19 @@ const SkeletonStyled = styled(Skeleton)`
   }
 `;
 
+const ContainerGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+`;
+
+const StyledTitle2 = styled(Title2)`
+  @media (max-width: 1024px) {
+    font-size: 15px;
+    line-height: 30px;
+  }
+`;
+
 const ProductDetails = ({ data }) => {
   const [valueRating, setValueRating] = useState(5);
   const [count, setCount] = useState(1);
@@ -483,7 +497,7 @@ const ProductDetails = ({ data }) => {
       <Container3>
         <Containerhead>
           {dataProduct[0]?.name ? (
-            <Title2>{dataProduct[0].name}</Title2>
+            <StyledTitle2>{dataProduct[0].name}</StyledTitle2>
           ) : (
             <Skeleton width={"90%"} height={50} />
           )}
@@ -602,13 +616,15 @@ const ProductDetails = ({ data }) => {
           </ContainerFlex>
         </ContainerPromise>
 
-        <ContainerFlex style={{ flexWrap: "wrap" }}>
-          <a target="_blank" href={dataProduct[0]?.link}>
-            <StyledButton4>Buy now</StyledButton4>
-          </a>
+        <ContainerGrid>
+          <StyledButton4>
+            <a target="_blank" href={dataProduct[0]?.link}>
+              Buy now
+            </a>
+          </StyledButton4>
 
           <StyledButton5>Add to cart</StyledButton5>
-        </ContainerFlex>
+        </ContainerGrid>
 
         <ContainerFooter>
           <TextPay>Payment methods</TextPay>

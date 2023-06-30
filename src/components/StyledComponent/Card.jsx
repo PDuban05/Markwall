@@ -134,6 +134,12 @@ const ContainerFlex = styled.div`
   gap: 20px;
 `;
 
+const StyledTextPrice = styled(TextPrice)`
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
+`;
+
 const CardProduct = ({ category, skeleton }) => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -211,22 +217,22 @@ const CardProduct = ({ category, skeleton }) => {
             <TextDiscount style={{ fontSize: "14px" }}>
               {formatCurrency(category.price, "USD")}
             </TextDiscount>
-            <TextPrice>
+            <StyledTextPrice>
               {formatCurrency(
                 category.price -
                   (category.price * parseFloat(category.discount)) / 100,
                 "USD"
               )}
-            </TextPrice>
+            </StyledTextPrice>
           </ContainerFlex>
         ) : (
-          <TextPrice>
+          <StyledTextPrice>
             {formatCurrency(
               category.price -
                 (category.price * parseFloat(category.discount)) / 100,
               "USD"
             )}
-          </TextPrice>
+          </StyledTextPrice>
         )}
       </CardBody>
     </Card>

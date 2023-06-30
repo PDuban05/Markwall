@@ -29,40 +29,40 @@ const AnimatedImages = () => {
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
 
-  // const moveImages = () => {
-  //   const containerWidth = image1Ref?.current?.parentNode?.clientWidth; // Obtener el ancho del contenedor
-  //   const containerHeight = image1Ref?.current?.parentNode?.clientHeight; // Obtener la altura del contenedor
-  //   const imageWidth = 200;
-  //   const imageHeight = 200;
+  const moveImages = () => {
+    const containerWidth = image1Ref?.current?.parentNode?.clientWidth; // Obtener el ancho del contenedor
+    const containerHeight = image1Ref?.current?.parentNode?.clientHeight; // Obtener la altura del contenedor
+    const imageWidth = 200;
+    const imageHeight = 200;
 
-  //   const containerWidth2 = containerWidth;
-  //   const containerHeight2 = containerHeight;
+    const containerWidth2 = containerWidth;
+    const containerHeight2 = containerHeight;
 
-  //   const x1 = getRandomNumber(0, containerWidth - imageWidth);
-  //   const y1 = getRandomNumber(0, containerHeight - imageHeight);
+    const x1 = getRandomNumber(0, containerWidth - imageWidth);
+    const y1 = getRandomNumber(0, containerHeight - imageHeight);
 
-  //   const x2 = getRandomNumber(0, containerWidth2 - imageWidth);
-  //   const y2 = getRandomNumber(0, containerHeight2 - imageHeight);
+    const x2 = getRandomNumber(0, containerWidth2 - imageWidth);
+    const y2 = getRandomNumber(0, containerHeight2 - imageHeight);
 
-  //   setImage1Props({
-  //     x: x1,
-  //     y: y1,
-  //     config: { duration: 9000 },
-  //     onRest: () => {
-  //       moveImages();
-  //     },
-  //   });
+    setImage1Props({
+      x: x1,
+      y: y1,
+      config: { duration: 9000 },
+      onRest: () => {
+        moveImages();
+      },
+    });
 
-  //   setImage2Props({
-  //     x: x2,
-  //     y: y2,
-  //     config: { duration: 9000 },
-  //   });
-  // };
+    setImage2Props({
+      x: x2,
+      y: y2,
+      config: { duration: 9000 },
+    });
+  };
 
-  // useEffect(() => {
-  //   moveImages();
-  // }, []);
+  useEffect(() => {
+    moveImages();
+  }, []);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineUsers } from "./Icons";
+import { AiOutlineUsers, RxHamburgerMenus } from "./Icons";
 import styled from "styled-components";
 import { Text5 } from "./Text";
 import {
@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   Menu,
   MenuItem,
+  ToggleButton,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -30,6 +31,10 @@ const ContainerUser = styled.div`
     :hover {
       background-color: #ffffff37;
     }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 `;
 const StyledImage = styled.img`
@@ -48,16 +53,37 @@ const StyledText5 = styled(Text5)`
   font-size: 14px;
   @media (max-width: 767px) {
     font-size: 12px;
-    display: none;
   }
 `;
 
 const Container = styled.div`
   display: ${(props) => (props.dataUser ? "flex" : "none")};
+  width: 100%;
+  justify-content: end;
+  align-items: start;
+`;
+
+const StyledRxHamburgerMenus = styled(RxHamburgerMenus)`
+  && {
+    display: none;
+    @media (max-width: 767px) {
+      display: flex;
+    }
+  }
+`;
+
+const StyledBox = styled(Box)`
+  && {
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: end;
+  }
 `;
 
 const UserNav = ({ dataUser }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selected, setSelected] = React.useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -74,8 +100,11 @@ const UserNav = ({ dataUser }) => {
 
   return (
     <Container dataUser={dataUser}>
-      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title="Account settings">
+      <StyledBox>
+        <Tooltip
+          title="Account settings"
+          style={{ display: "flex", alignItems: "start", padding: "0" }}
+        >
           <IconButton
             onClick={handleClick}
             size="small"
@@ -85,22 +114,26 @@ const UserNav = ({ dataUser }) => {
             aria-expanded={open ? "true" : undefined}
           >
             {dataUser !== null ? (
-              <ContainerUser>
-                <StyledText5>
-                  {dataUser.displayName.split(" ").slice(0, 2).join(" ")}
-                </StyledText5>
-                {dataUser.photoURL == "" || dataUser.photoURL == null ? (
-                  <AiOutlineUsers />
-                ) : (
-                  <ImageContainer>
-                    <StyledImage src={dataUser?.photoURL} />
-                  </ImageContainer>
-                )}
-              </ContainerUser>
+              <>
+                <ContainerUser>
+                  <StyledText5>
+                    {dataUser.displayName.split(" ").slice(0, 2).join(" ")}
+                  </StyledText5>
+                  {dataUser.photoURL == "" || dataUser.photoURL == null ? (
+                    <AiOutlineUsers />
+                  ) : (
+                    <ImageContainer>
+                      <StyledImage src={dataUser?.photoURL} />
+                    </ImageContainer>
+                  )}
+                </ContainerUser>
+
+                <StyledRxHamburgerMenus />
+              </>
             ) : null}
           </IconButton>
         </Tooltip>
-      </Box>
+      </StyledBox>
       <Menu
         anchorEl={anchorEl}
         id="account-menu"

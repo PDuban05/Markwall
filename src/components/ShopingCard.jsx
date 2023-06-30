@@ -62,11 +62,12 @@ const products = [
 const Container = styled.div`
   width: 70%;
   height: 650px;
-  margin: 0px auto 100px auto;
+  margin: 100px auto 100px auto;
   @media (max-width: 1400px) {
     width: 90%;
     border: none;
     height: auto;
+    margin: 50px auto 100px auto;
   }
 `;
 

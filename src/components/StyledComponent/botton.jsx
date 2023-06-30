@@ -148,7 +148,6 @@ export const StyleButtoncancel = styled(StyledButton3)`
 
 export const StyledButton4 = styled(Button)`
   && {
-    flex-grow: 1;
     min-width: 200px;
     height: 48px;
     display: block;
